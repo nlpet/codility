@@ -60,12 +60,11 @@ from sys import maxsize
 
 def solution(A):
     """Solution."""
-    N = len(A)
     a_sum = sum(A)
-    part_a = sum(A[:1])
+    part_a = A[:1][0]
     part_b = a_sum - part_a
     min_diff = maxsize
-    for i in range(1, N):
+    for i in range(1, len(A)):
         diff = fabs(part_a - part_b)
         part_a += A[i]
         part_b -= A[i]
