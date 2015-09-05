@@ -1,5 +1,5 @@
 # coding=utf-8
-u"""Min avg two slice solution."""
+"""https://codility.com/demo/take-sample-test/min_avg_two_slice/."""
 
 
 def solution(A):
