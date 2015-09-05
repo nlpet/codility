@@ -1,5 +1,5 @@
 # coding=utf-8
-u"""Count div solution."""
+u"""https://codility.com/demo/take-sample-test/count_div/."""
 import unittest
 from math import floor
 

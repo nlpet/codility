@@ -1,4 +1,4 @@
-"""Max counter solution."""
+"""https://codility.com/demo/take-sample-test/max_counters/."""
 from collections import Counter
 
 

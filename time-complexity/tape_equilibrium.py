@@ -1,4 +1,4 @@
-"""Tape equilibrium."""
+"""https://codility.com/demo/take-sample-test/tape_equilibrium/."""
 
 
 from math import fabs

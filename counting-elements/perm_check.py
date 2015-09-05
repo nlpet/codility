@@ -1,4 +1,4 @@
-"""Perm check solution."""
+"""https://codility.com/demo/take-sample-test/perm_check/."""
 
 
 def solution(A):

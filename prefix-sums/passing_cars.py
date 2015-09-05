@@ -1,5 +1,5 @@
 # coding=utf-8
-u"""Passing cars."""
+"""https://codility.com/demo/take-sample-test/passing_cars/."""
 import unittest
 
 

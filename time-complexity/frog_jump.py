@@ -1,4 +1,4 @@
-"""Frog jump solution."""
+"""https://codility.com/demo/take-sample-test/frog_jmp/."""
 
 
 def solution(X, Y, D):

@@ -1,4 +1,4 @@
-"""Frog river one solution."""
+"""https://codility.com/demo/take-sample-test/frog_river_one/."""
 
 
 def solution(X, A):
