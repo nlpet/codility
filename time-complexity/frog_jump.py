@@ -1,3 +1,6 @@
+"""Frog jump solution."""
+
+
 def solution(X, Y, D):
     """Solution."""
     if X == Y:

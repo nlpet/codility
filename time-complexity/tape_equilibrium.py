@@ -1,3 +1,6 @@
+"""Tape equilibrium."""
+
+
 from math import fabs
 from sys import maxsize
 
