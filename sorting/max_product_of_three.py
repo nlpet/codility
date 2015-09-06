@@ -1,5 +1,5 @@
 """
-Paper on sorting: https://codility.com/media/train/4-Sorting.pdf.
+Paper on sorting: https://codility.com/media/train/4-Sorting.pdf
 
 Challenge URL: https://codility.com/demo/take-sample-test/max_product_of_three/
 """
