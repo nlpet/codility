@@ -45,31 +45,22 @@ def solution(A, B):
         # If fish is flowing downstream
         if B[i]:
             downstream.enqueue(A[i], i)
-            # Fish A[i] meets all the fish from the upstream queue
-            while len(upstream) and len(downstream):
-                fish_size, fish_index = upstream.peek()
-                if fish_index > i:
-                    if A[i] > fish_size:
-                        upstream.dequeue()
-                    else:
-                        downstream.dequeue()
-                else:
-                    survived += 1
-                    upstream.dequeue()
-        # If fish is flowing upstream
         else:
             upstream.enqueue(A[i], i)
-            # Fish A[i] meets all the fish from the downstream queue
-            while len(upstream) and len(downstream):
-                fish_size, fish_index = downstream.peek()
-                if fish_index < i:
-                    if A[i] > fish_size:
-                        downstream.dequeue()
-                    else:
-                        upstream.dequeue()
-                else:
-                    survived += 1
-                    downstream.dequeue()
+
+    while len(upstream) and len(downstream):
+        up_size, up_index = upstream.peek()
+        down_size, down_index = downstream.peek()
+        if up_index < down_index:
+            # Escaped
+            survived += 1
+            upstream.dequeue()
+        else:
+            if up_size > down_size:
+                downstream.dequeue()
+            else:
+                upstream.dequeue()
+
     return survived + len(upstream) + len(downstream)
 
 
