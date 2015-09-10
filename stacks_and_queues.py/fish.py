@@ -7,6 +7,7 @@ When two fish meet, the bigger one eats the smaller one. Find the number
 of fish that are alive in the end.
 """
 
+
 class Queue(object):
     """
     Queue object for managing downstream / upstream fish.
@@ -38,11 +39,12 @@ def solution(A, B):
     :list : A
     :list : B
     """
+    survived = 0
     upstream, downstream = Queue(), Queue()
     for i in range(len(A)):
         # If fish is flowing downstream
         if B[i]:
-            downstream.enqueue(A[i])
+            downstream.enqueue(A[i], i)
             # Fish A[i] meets all the fish from the upstream queue
             while len(upstream) and len(downstream):
                 fish_size, fish_index = upstream.peek()
@@ -51,18 +53,24 @@ def solution(A, B):
                         upstream.dequeue()
                     else:
                         downstream.dequeue()
+                else:
+                    survived += 1
+                    upstream.dequeue()
         # If fish is flowing upstream
         else:
-            upstream.enqueue(A[i])
+            upstream.enqueue(A[i], i)
             # Fish A[i] meets all the fish from the downstream queue
-            while len(downstream) and len(upstream):
+            while len(upstream) and len(downstream):
                 fish_size, fish_index = downstream.peek()
                 if fish_index < i:
                     if A[i] > fish_size:
                         downstream.dequeue()
                     else:
                         upstream.dequeue()
-    return sum(len(upstream) + len(downstream))
+                else:
+                    survived += 1
+                    downstream.dequeue()
+    return survived + len(upstream) + len(downstream)
 
 
 if __name__ == '__main__':
