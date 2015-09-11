@@ -18,5 +18,5 @@ def solution(A):
 
 
 if __name__ == '__main__':
-    A = [3, 4, 3, 2 ,3 , -1, 3, 3]
+    A = [3, 4, 3, 2, 3, -1, 3, 3]
     print solution(A)
