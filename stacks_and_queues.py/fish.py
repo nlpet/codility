@@ -8,60 +8,22 @@ of fish that are alive in the end.
 """
 
 
-class Queue(object):
-    """
-    Queue object for managing downstream / upstream fish.
-    """
-    def __init__(self):
-        self.queue = []
-
-    def enqueue(self, item, index):
-        self.queue.append((item, index))
-
-    def dequeue(self):
-        return self.queue.pop(0)
-
-    def __len__(self):
-        return len(self.queue)
-
-    def peek(self):
-        return self.queue[0]
-
-    def __repr__(self):
-        return "%s(%r)" % (self.__class__, self.__dict__)
-
-    def __str__(self):
-        return ' '.join([str(n) for n in self.queue])
-
-
 def solution(A, B):
-    """
-    :list : A
-    :list : B
-    """
     survived = 0
-    upstream, downstream = Queue(), Queue()
+    downstream = []
+
     for i in range(len(A)):
-        # If fish is flowing downstream
-        if B[i]:
-            downstream.enqueue(A[i], i)
+        if B[i] == 1:
+            downstream.append(A[i])
         else:
-            upstream.enqueue(A[i], i)
-
-    while len(upstream) and len(downstream):
-        up_size, up_index = upstream.peek()
-        down_size, down_index = downstream.peek()
-        if up_index < down_index:
-            # Escaped
-            survived += 1
-            upstream.dequeue()
-        else:
-            if up_size > down_size:
-                downstream.dequeue()
+            while len(downstream) != 0:
+                if downstream[-1] < A[i]:
+                    downstream.pop()
+                else:
+                    break
             else:
-                upstream.dequeue()
-
-    return survived + len(upstream) + len(downstream)
+                survived += 1
+    return len(downstream) + survived
 
 
 if __name__ == '__main__':
