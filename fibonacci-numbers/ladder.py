@@ -11,7 +11,6 @@ SQRT5 = np.float(sqrt(5))
 def fib(n):
     n += 1
     phin = np.float(PHI ** n)
-    # wrap in int() if python version < 3.2
     return int((phin - ((-1)**n / phin)) / SQRT5)
 
 
